@@ -13,16 +13,16 @@ public class Digits {
    * Precondition: num >= 0
    */
   public Digits(int num) {
-    digitList = new ArrayList<Integer>();
+    digitList = new ArrayList<>();
 
     if (num == 0) {
-      digitList.add(new Integer(0));
+      digitList.add(0);
     }
 
     while (num > 0) {
       // Add new digits at the head of the list,
       // working from least to most significant.
-      digitList.add(0, new Integer(num % 10));
+      digitList.add(0, num % 10);
       num /= 10;
     }
   }
@@ -34,7 +34,7 @@ public class Digits {
   public boolean isStrictlyIncreasing() {
     boolean rv = true;
     for (int i = 0; i < digitList.size() - 1; i++) {
-      if (digitList.get(i).intValue() >= digitList.get(i + 1).intValue()) {
+      if (digitList.get(i) >= digitList.get(i + 1)) {
         rv = false;
         break;
       }
