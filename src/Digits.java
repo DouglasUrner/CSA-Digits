@@ -12,11 +12,33 @@ public class Digits {
    * Constructs a Digits object that represents num.
    * Precondition: num >= 0
    */
-  public Digits(int num) { /* to be implemented in part (a) */ }
+  public Digits(int num) {
+    digitList = new ArrayList<Integer>();
+
+    if (num == 0) {
+      digitList.add(new Integer(0));
+    }
+
+    while (num > 0) {
+      // Add new digits at the head of the list,
+      // working from least to most significant.
+      digitList.add(0, new Integer(num % 10));
+      num /= 10;
+    }
+  }
 
   /**
    * Returns true if the digits in this Digits object are in strictly
    * increasing order; false otherwise.
    */
-  public boolean isStrictlyIncreasing() { /* to be implemented in part (b) */ }
+  public boolean isStrictlyIncreasing() {
+    boolean rv = true;
+    for (int i = 0; i < digitList.size() - 1; i++) {
+      if (digitList.get(i).intValue() >= digitList.get(i + 1).intValue()) {
+        rv = false;
+        break;
+      }
+    }
+    return rv;
+  }
 }
