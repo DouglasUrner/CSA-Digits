@@ -1,3 +1,5 @@
+package digits;
+
 import java.util.ArrayList;
 
 public class Digits {
